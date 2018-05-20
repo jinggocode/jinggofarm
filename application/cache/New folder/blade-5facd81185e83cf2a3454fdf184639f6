@@ -1,0 +1,91 @@
+a:3:{s:4:"time";i:1517510971;s:3:"ttl";i:3600;s:4:"data";s:4298:"
+
+<?php $this->_section_start('title'); ?>Nama Ternak<?php $this->_section_end(); ?>
+<?php $this->_section_start('menu name'); ?><strong>Detail Ternak</strong><?php $this->_section_end(); ?>
+  
+<?php $this->_section_start('content'); ?> 
+<div class="text-center opaque-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-4 mb-4 text-left"><b>Daftar Ternak Investasi</b></h1>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="text-dark py-3">
+    <div class="container"> 
+      <div class="row">
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <img class="img-fluid" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG" alt="Card image">
+            <div class="card-body bg-primary">
+              <h4 class="card-subtitle text-light">Sapi Friesian Holstein (FH)</h4>
+              <p class="card-text p-y-1 w-100 py-2 text-light">Profit 10-20%
+                <br>Periode 4 Tahun</p>
+              <a href="<?php echo site_url('investor/cattle/view'); ?>" class="card-link btn btn-secondary">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <img class="img-fluid" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG" alt="Card image">
+            <div class="card-body bg-primary">
+              <h4 class="card-subtitle text-light">Sapi Friesian Holstein (FH)</h4>
+              <p class="card-text p-y-1 w-100 py-2 text-light">Profit 10-20%
+                <br>Periode 4 Tahun</p>
+              <a href="<?php echo site_url('investor/cattle/view'); ?>" class="card-link btn btn-secondary">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <img class="img-fluid" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG" alt="Card image">
+            <div class="card-body bg-primary">
+              <h4 class="card-subtitle text-light">Sapi Friesian Holstein (FH)</h4>
+              <p class="card-text p-y-1 w-100 py-2 text-light">Profit 10-20%
+                <br>Periode 4 Tahun</p>
+              <a href="<?php echo site_url('investor/cattle/view'); ?>" class="card-link btn btn-secondary">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row"> </div>
+    </div>
+  </div>
+  <div class="py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <p class="lead">Sign up to our newsletter for the latest news</p>
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your e-mail here"> </div>
+            <button type="submit" class="btn btn-primary ml-3">Subscribe</button>
+          </form>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.facebook.com" target="_blank"><i class="fa fa-fw fa-facebook fa-3x text-white"></i></a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://twitter.com" target="_blank"><i class="fa fa-fw fa-twitter fa-3x text-white"></i></a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.instagram.com" target="_blank"><i class="fa fa-fw fa-instagram text-white fa-3x"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-3 text-center">
+          <p>© Copyright 2018 Jinggofarm - All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

@@ -1,0 +1,50 @@
+a:3:{s:4:"time";i:1497504793;s:3:"ttl";i:3600;s:4:"data";s:2156:"
+
+<?php $this->_section_start('title'); ?>
+	List Mahasiswa
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<form action="<?php echo  site_url('student/update') ; ?>" method="post">
+<?php echo  $csrf ; ?> 
+
+  <div class="form-group">
+    <label for="NIM">NIM</label>
+    <?php echo  form_error('nim') ; ?>
+    <input value="<?php echo  $student->nim ; ?> " name="nim" type="text" class="form-control" id="NIM" placeholder="NIM">
+  </div>
+  <div class="form-group">
+    <label for="Nama">Nama</label>
+    <input value="<?php echo  $student->nama ; ?> " name="nama" type="text" class="form-control" id="Nama" placeholder="Nama">
+  </div>
+  <div class="form-group">
+    <label for="Username">Username</label>
+    <input value="<?php echo  $student->username ; ?> " name="username" type="text" class="form-control" id="Username" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="Gender">Gender</label>
+    <select name="gender" class="form-control" id="Gender">
+      <option value="">- Gender -</option>
+      <option value="L" <?php echo  ($student->gender == "L") ? 'selected' : '' ; ?>>Laki - laki</option>
+      <option value="P" <?php echo  ($student->gender == "P") ? 'selected' : '' ; ?>>Perempuan</option>
+    </select> 
+  </div>
+  <div class="form-group">
+    <label for="golongan_id">Golongan</label>
+    <select name="golongan_id" class="form-control" id="golongan_id">
+      <option value="">- Pilih Golongan -</option>
+      
+      <?php foreach($golongan as $data): ?>
+        <option value="<?php echo  $data->id ; ?>" <?php echo  ($student->gedung_id == $data->id) ? 'selected' : '' ; ?>><?php echo  $data->golongan ; ?></option>
+      <?php endforeach; ?>
+    </select> 
+  </div>
+  <div class="form-group">
+    <label for="Address">Address</label>
+    <textarea placeholder="Address" name="address" id="Address" class="form-control"><?php echo  $student->address ; ?> </textarea> 
+  </div> 
+  <button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('layout/index'); ?>
+";}

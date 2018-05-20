@@ -1,0 +1,92 @@
+a:3:{s:4:"time";i:1518274581;s:3:"ttl";i:3600;s:4:"data";s:3491:"
+
+<?php $this->_section_start('title'); ?>Ternak Saya<?php $this->_section_end(); ?> 
+  
+<?php $this->_section_start('content'); ?>  
+<div class="text-center opaque-overlay bg-primary">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12 text-white">
+        <h1 style="margin-bottom: -4px" class="text-left display-5"><i class="fa fa-th-large"></i>&nbsp;Ternak Saya</h1>
+        <hr class="text-white border border-light mx-0" style="width: 20%"> </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <form class="">
+      <div class="form-group row"> <label for="inputPassword2" class="sr-only">Password</label>
+        <div class="col-md-4 col-sm-3">
+          <input type="password" class="form-control" id="inputPassword2" placeholder="Berdasarkan Nama" style="width: 100%;"> </div>
+        <div class="col-sm-7 col-md-3">
+          <button type="submit" class="btn btn-primary mb-2">Cari</button>
+        </div>
+      </div>
+    </form>
+    <div class="row"> </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-responsive">
+          <thead class="text-light bg-primary">
+            <tr>
+              <th style="width: 5%">#</th>
+              <th style="width: 40%">Nama Ternak</th>
+              <th style="width: 25%">Jumlah Unit</th>
+              <th style="width: 15%">Status</th>
+              <th class="w-25">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><b>Sapi Perah FH</b></td>
+              <td>4</td>
+              <td> <span class="badge badge-primary">Masa Ternak</span></td>
+              <td>
+                <a href="<?php echo site_url('mycattle/view'); ?>" class="btn text-light btn-sm btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</a>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><b>Sapi Perah Madura</b></td>
+              <td>4</td>
+              <td> <span class="badge badge-primary">Masa Ternak</span></td>
+              <td>
+                <a class="btn text-light btn-sm btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div align="right">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">«</span> <span class="sr-only">Previous</span> </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">4</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">»</span> <span class="sr-only">Next</span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

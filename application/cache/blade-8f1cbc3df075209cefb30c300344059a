@@ -1,0 +1,80 @@
+a:3:{s:4:"time";i:1525666030;s:3:"ttl";i:3600;s:4:"data";s:3810:"
+
+<?php $this->_section_start('title'); ?>Pilihan Investasi <?php $this->_section_end(); ?>
+
+<?php $this->_section_start('style'); ?>
+<style>
+.bg{
+  background-image: url(<?php echo base_url('assets/img/bg-list.jpg'); ?>);
+}
+</style>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<div class="bg">
+  <div class="text-center opaque-overlay" style="background: rgba(0, 78, 163, 0.8)">
+    <div class="container py-5 mt-3">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-4 mb-4 text-center"><b>Daftar Investasi di <b>Jinggofarm</b></b></h1>
+          <hr class="text-white border border-light" align="center" style="width: 10%">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="text-dark py-3">
+    <div class="container">
+      <div class="row">
+
+        <?php foreach($ternak as $value): ?>
+          <div class="col-md-4 my-3 card-fit" onclick="window.location.href='<?php echo site_url('cattle/view/'.$value->id.'/'.$value->slug); ?>'" style="cursor: pointer;">
+            <div class="card-deck">
+              <div class="card card-hover border-secondary">
+                <a class="progressive replace" href="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?>" data-srcset="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?> 800w, <?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?> 1200w" data-sizes="100vw">
+                  <img class="card-img-top preview" src="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?>" alt="Card image cap">
+                </a>
+                <div class="card-body text-dark">
+                  <h5 class="card-title" style="font-weight: 900">
+                    <b><?php echo $value->kategori->nama; ?> (<?php echo $value->jumlah_sapi; ?> Ekor)</b> <br>
+                    <?php echo ($value->status == 0)?'<span class="badge badge-success mt-2 mb-2"><i class="fa fa-check"></i> Tersedia</span>':''; ?>
+                    <?php echo ($value->sisa_unit == 0)?'<span class="badge badge-danger mt-2 mb-2"><i class="fa fa-times"></i> Paket Habis</span>':''; ?>
+                  </h5>
+
+                  <table class="table table-sm">
+                    <tr>
+                      <td>Lama Investasi</td>
+                      <td><b><?php echo $value->lama_periode; ?> Tahun</b></td>
+                    </tr>
+                    <tr>
+                      <td>Jumlah Paket <i data-toggle="tooltip" data-placement="top" title="Paket merupakan hasil pembagian dari biaya ternak sesuai yang telah kami tentukan" class="fa fa-question-circle" ></i></td>
+                      <td><b><?php echo $value->jumlah_unit; ?></b></td>
+                    </tr>
+                    <?php if ($value->sisa_unit |= 0): ?>
+                      <tr>
+                        <td>Sisa Paket</td>
+                        <td><b><?php echo $value->sisa_unit; ?></b></td>
+                      </tr>
+                    <?php endif; ?>
+                    <tr>
+                      <td>Biaya /Paket</td>
+                      <td><b><?php echo money($value->biaya / $value->jumlah_unit); ?></b></td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="card-footer">
+                  <a href="<?php echo site_url('cattle/view/'.$value->id.'/'.$value->slug); ?>" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+
+      </div>
+    </div>
+  </div>
+<?php $this->_section_end(); ?>
+
+<?php echo $this->_include('_layout/index'); ?>
+";}

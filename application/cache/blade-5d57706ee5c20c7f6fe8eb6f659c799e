@@ -1,0 +1,151 @@
+a:3:{s:4:"time";i:1525625038;s:3:"ttl";i:3600;s:4:"data";s:7062:"
+
+<?php $this->_section_start('title'); ?>Beranda <?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<div class="py-5 bg-secondary">
+  <div class="container py-1">
+      <div class="row text-center">
+        <!--<div class="col-md-3 text-white">
+          <img class="img-fluid d-block mx-auto mb-5" src="https://pingendo.github.io/templates/sections/assets/footer_logo2.png"> </div>-->
+        <div class="col-md-12 text-white align-self-center">
+          <img src="<?php echo base_url('assets/img/icon/cow.png'); ?>" width="90" class="img-fluid" alt="">
+          <h4 class="mb-1 display-2 text-light" style=" line-height: 1.45; font-size: 30px">Selamat Datang <span class=" text-light"><?php echo $nama_user; ?></span> di Jinggofarm!</h4>
+          <hr class="text-white border border-light" align="center" style="width: 10%">
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="py-4">
+  <div class="container">
+    <?php if (isset($transaksi)): ?>
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Selesaikan Transaksi anda sebelum <b><?php echo dateFormatBulan(3, $transaksi->batas_bayar); ?></b></h4>
+        <p>Investasi <?php echo $transaksi->ternak->kategori->nama; ?> <b><?php echo money($transaksi->total); ?></b></p>
+        <hr>
+        <p class="mb-0">
+          <a href="<?php echo site_url('investor/payment/view/'.$transaksi->kode_transaksi); ?>" class="btn btn-primary">Lihat Selengkapnya</a>
+          <a onclick="alert()" href="<?php echo site_url('investor/payment/cancel/'.$transaksi->kode_transaksi); ?>" class="btn btn-warning">Batalkan</a>
+        </p>
+      </div>
+    <?php endif; ?>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row mb-5">
+          <div class="col-md-5">
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-secondary text-center">
+                <h5 class="card-title text-center">Jumlah Investasi</h5>
+                <p align="center" class="card-text badge badge-secondary" style="font-size: 30px;"><b><?php echo $jumlah_ternak; ?></b></p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="<?php echo site_url('investor/mycattle'); ?>" class="btn btn-outline-secondary btn-block btn-block">Lihat</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-secondary text-center">
+                <h5 class="card-title text-center">Profit</h5>
+                <p class="card-text text-center badge badge-secondary" style="font-size: 30px;"><b><?php echo money($saldo); ?></b></p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="<?php echo site_url('investor/balance'); ?>" class="btn btn-outline-secondary btn-block btn-block">Lihat</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="">Pilihan Investasi Terbaik untuk Anda!</h2>
+        <hr class="text-secondary border border-dark mx-0" style="width: 10%">
+
+        <div class="row mb-5">
+
+          <?php foreach($ternak as $value): ?>
+            <div class="col-md-6 my-3 card-fit" onclick="window.location.href='<?php echo site_url('investor/cattle/view/'.$value->id.'/'.$value->slug); ?>'" style="cursor: pointer;">
+              <div class="card-deck">
+                <div class="card card-hover border-secondary">
+                  <a class="progressive replace" href="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?>" data-srcset="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?> 800w, <?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?> 1200w" data-sizes="100vw">
+                    <img class="card-img-top preview" src="<?php echo base_url('uploads/cattle/img/'.$value->foto->nama_foto); ?>" alt="Card image cap">
+                  </a>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title" style="font-weight: 900">
+                      <b><?php echo $value->kategori->nama; ?> (<?php echo $value->jumlah_sapi; ?> Ekor)</b> <br>
+                      <?php echo ($value->status == 0)?'<span class="badge badge-success mt-2 mb-2">Tersedia</span>':''; ?>
+                      <?php echo ($value->sisa_unit == 0)?'<span class="badge badge-danger mt-2 mb-2">Paket Habis</span>':''; ?>
+                    </h5>
+
+                    <table class="table table-sm">
+                      <tr>
+                        <td>Lama Investasi</td>
+                        <td><b><?php echo $value->lama_periode; ?> Tahun</b></td>
+                      </tr>
+                      <tr>
+                        <td>Jumlah Paket</td>
+                        <td><b><?php echo $value->jumlah_unit; ?></b></td>
+                      </tr>
+                      <?php if ($value->sisa_unit |= 0): ?>
+                        <tr>
+                          <td>Sisa Paket</td>
+                          <td><b><?php echo $value->sisa_unit; ?></b></td>
+                        </tr>
+                      <?php endif; ?>
+                      <tr>
+                        <td>Biaya /Paket</td>
+                        <td><b><?php echo money($value->biaya / $value->jumlah_unit); ?></b></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <!--<div class="card-footer">
+                    <a href="<?php echo site_url('cattle/view/'.$value->id.'/'.$value->slug); ?>" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Informasi
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <?php if ($info_akun == '0'): ?>
+                <div class="alert alert-danger" role="alert">
+                  <h3 align="center"><strong>Penting!</strong></h3>
+                  Segera lakukan aktifasi akun anda, dengan cara cek email anda!
+                </div>
+              <?php else: ?>
+                <p align="center">-tidak ada Informasi-</p>
+              <?php endif; ?>
+
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('script'); ?>
+<script>
+  function alert() {
+    swal({
+      title: "Apakah anda yakin?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+  }
+</script>
+<?php $this->_section_end(); ?>
+
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

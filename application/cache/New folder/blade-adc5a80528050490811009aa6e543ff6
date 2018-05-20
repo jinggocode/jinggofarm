@@ -1,0 +1,48 @@
+a:3:{s:4:"time";i:1497504157;s:3:"ttl";i:3600;s:4:"data";s:1490:"
+
+<?php $this->_section_start('title'); ?>
+	List Mahasiswa
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('style'); ?>
+	<link rel="stylesheet" href="<?php echo  base_url('assets/css/style.css') ; ?>">
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+	<h1>Students List</h1>
+
+	<a href="<?php echo  site_url('student/add') ; ?>" class="btn btn-primary">Tambah Data</a>
+
+	<table class="table">
+		<thead>
+			<td>NIM</td>
+			<td>Nama</td>
+			<td>Username</td>
+			<td>Gender</td>
+			<td>Alamat</td>
+			<td>Golongan</td>
+			<td>Aksi</td>
+		</thead>
+		<tbody> 
+			<?php $no = 1; ?>
+			<?php foreach($students as $data): ?>
+			<tr>
+				<td><?php echo  $no++ ; ?></td>
+				<td><?php echo  $data->nama ; ?></td>
+				<td><?php echo  $data->username ; ?></td>
+				<td><?php echo  $data->gender ; ?></td>
+				<td><?php echo  $data->address ; ?></td>
+				<td><?php echo  $data->golongan->golongan ; ?></td>
+				<td>
+					<a href="<?php echo  site_url('student/detail/'.$data->id) ; ?>" class="btn btn-primary">Detail</a>
+					<a href="<?php echo  site_url('student/edit/'.$data->id) ; ?>" class="btn btn-success">Edit</a>
+					<a href="<?php echo  site_url('student/arsip/'.$data->id) ; ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Arsipkan</a>
+				</td>
+			</tr>
+			<?php endforeach; ?> 
+
+		</tbody>
+	</table>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('layout/index'); ?>
+";}

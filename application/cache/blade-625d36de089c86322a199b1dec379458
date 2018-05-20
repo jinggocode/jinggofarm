@@ -1,0 +1,9 @@
+a:3:{s:4:"time";i:1525625038;s:3:"ttl";i:3600;s:4:"data";s:1251:"<div class="container">
+  <?php $page = $this->uri->segment(2); ?>
+  <div class="row bg-primary">
+    <div class="col-3 col-sm-3 nopadding"><a class="btn btn-primary btn-block <?php echo ($page == 'home' || $page == 'cattle')?'active':''; ?>" href="<?php echo site_url('investor/home'); ?>"><i class="fa fa-lg fa-home"></i><br><span style="font-size: 12px">Beranda</span></a></div>
+    <div class="col-3 col-sm-3 nopadding"><a class="btn btn-primary btn-block <?php echo ($page == 'mycattle')?'active':''; ?>" href="<?php echo site_url('investor/mycattle'); ?>"><i class="fa fa-th-large"></i><br><span style="font-size: 12px">Ternakku</span></a></div>
+    <div class="col-3 col-sm-3 nopadding"><a class="btn btn-primary btn-block <?php echo ($page == 'transaction' || $page == 'payment')?'active':''; ?>" href="<?php echo site_url('investor/transaction'); ?>"><i class="fa fa-lg fa-file-text-o"></i><br><span style="font-size: 12px">Transaksi</span></a></div>
+    <div class="col-3 col-sm-3 nopadding"><a class="btn btn-primary btn-block <?php echo ($page == 'balance')?'active':''; ?>" href="<?php echo site_url('investor/balance'); ?>"><i class="fa fa-lg fa-money"></i><br><span style="font-size: 12px">Saldo</span></a></div>
+  </div>
+</div>";}

@@ -1,0 +1,86 @@
+a:3:{s:4:"time";i:1517816067;s:3:"ttl";i:3600;s:4:"data";s:4125:"
+
+<?php $this->_section_start('title'); ?>Nama Ternak<?php $this->_section_end(); ?>
+<?php $this->_section_start('menu name'); ?><strong>Detail Ternak</strong><?php $this->_section_end(); ?>
+  
+<?php $this->_section_start('content'); ?> 
+<div class="text-center opaque-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-3 mb-4 text-left">Sapi Fresian Holstein (FH)</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img class="d-block mx-auto img-fluid" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG">
+          <a class="btn btn-lg btn-block btn-secondary my-4" href="">Prospek Ternak.pdf</a>
+        </div>
+        <div class="col-md-7 my-1">
+          <div class="col-md-12">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+            </div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td style="width: 40%">
+                    <h5>Kebutuhan Dana</h5>
+                  </td>
+                  <td>Rp. 25.000.000</td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Dana Terkumpul</h5>
+                  </td>
+                  <td>Rp. 14.000.000</td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Biaya per Unit</h5>
+                  </td>
+                  <td><strong>Rp. 1.000.000</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Periode Ternak</h5>
+                  </td>
+                  <td>5 Tahun</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="card">
+              <div class="card-header">Ayo Mulai Investasi! </div>
+              <div class="card-body">
+                <h5>Masukan Jumlah Unit yang disalurkan</h5>
+                <form class="" method="post" action="https://formspree.io/">
+                  <div class="form-group"> <label>Unit</label> <select class="form-control">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select> </div>
+                  <a href="<?php echo site_url('payment'); ?>" class="btn btn-primary btn-block">Beri Dana</a>
+                </form>
+              </div>
+            </div>
+            <br> </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="">Deskripsi</h1>
+          <p class="lead">Sapi holstein atau frisia merupakan salah satu trah sapi perah yang sekarang dikenal sebagai sapi yang terbanyak memproduksi susu di peternakan susu. Berasal dari Eropa, sapi holstein dikembangbiakkan di daerah yang sekarang menjadi Provinsi
+            Holland Utara dan Friesland, Belanda (jadi bukan dari Holstein, Jerman). Sapi holstein berukuran besar dengan totol-totol warna hitam dan putih di sekujur tubuhnya. Dalam arti sempit, sapi holstein memiliki telinga hitam, kaki putih, dan ujung
+            ekor yang putih. Di Indonesia sapi jenis FH ini dapat menghasilkan susu 20 liter/hari, tetapi rata-rata produksi 10 liter/hari atau 3.050 kg susu 1 kali masa laktasi. Sapi jantan jenis FH ini dapat mencapai berat badan 1.000 kg, dan berat
+            badan ideal betina adalah 635 kg. Di Amerika sapi jenis FH ini dapat memproduksi lebih dari 7.000 kg susu dalam 1 kali masa laktasi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/index'); ?>
+";}

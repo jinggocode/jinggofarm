@@ -1,0 +1,95 @@
+a:3:{s:4:"time";i:1525666039;s:3:"ttl";i:3600;s:4:"data";s:3323:"
+
+<?php $this->_section_start('title'); ?>Kelompok Ternak Sumber Lumintu <?php $this->_section_end(); ?>
+
+<?php $this->_section_start('style'); ?>
+<style media="screen">
+  .card-description{
+    position: relative;
+    bottom: 120px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
+  }
+  .card-description .content{
+    padding: 30px
+  }
+  .text-1{
+    font-size: 18px
+  }
+  .bold{
+    font-weight: 700
+  }
+  .card:hover{
+    transition: transform .4s;
+    transform: scale(1.04);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
+    border: none;
+    cursor: pointer; ;
+  }
+  .btn-back{
+    font-size: 30px;
+    display: block;
+    height: 100%;
+    padding-left: 10px;
+    position: absolute;
+    padding-top: 16px;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+    color: white;
+  }
+</style>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<div class="opaque-overlay bg-secondary">
+  <!-- <div class="bg-secondary btn-back mb-3">
+    <a href="" class="text-white" onclick="window.history.go(-1); return false;"><i class="fa fa-arrow-left"></i></a>
+  </div> -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12 text-white pb-5">
+        <h2 class="text-left display-5">Kelompok Ternak Sumber Lumintu</h2>
+        <h6><i class="fa fa-map-marker"></i> Genteng, Kabupaten Banyuwangi</h6>
+        <!-- <hr class="text-white border border-light mx-0" style="width: 20%"> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-5 bg-light">
+  <div class="container bg-white card-description">
+    <div class="row">
+      <div class="col-md-12 content">
+        <h3 class="bold">Deskripsi</h3>
+        <p class="text-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h3 class="bold">Pengelola</h3>
+        <div class="row pt-2">
+
+          <?php foreach ($pengelola as $value): ?>
+          <div class="col-md-3" style="display: flex;">
+            <div class="card card-fit">
+              <img class="card-img-top" src="<?php echo base_url('uploads/cattleman/img/'.$value->foto); ?>" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title text-center"><?php echo $value->nama; ?></h4>
+                <h6 class="text-center">- <i><?php echo $value->kategori->nama; ?></i> -</h6>
+                <p class="text-center" style="font-size: 14px">
+                  Umur <?php echo $value->umur; ?> Tahun <br>
+                  Pengalaman Beternak <?php echo $value->lama_pengalaman; ?> Tahun
+                </p>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+ 
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php $this->_section_end(); ?>
+
+<?php echo $this->_include('_layout/index'); ?>
+";}

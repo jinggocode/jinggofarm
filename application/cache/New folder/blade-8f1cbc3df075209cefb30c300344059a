@@ -1,0 +1,45 @@
+a:3:{s:4:"time";i:1518281764;s:3:"ttl";i:3600;s:4:"data";s:2106:"
+
+<?php $this->_section_start('title'); ?>Nama Ternak<?php $this->_section_end(); ?>
+  
+<?php $this->_section_start('content'); ?>  
+<div class="text-center opaque-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-4 mb-4 text-left"><b>Daftar Ternak Investasi</b></h1>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="text-dark py-3">
+    <div class="container"> 
+      <div class="row">
+        
+        <?php foreach($ternak as $value): ?>  
+        <div class="col-md-4 my-3">
+          <a href="<?php echo site_url('cattle/view/'.$value->slug); ?>">
+          <div class="card-deck">
+            <div class="card card-hover border-secondary">
+              <a class="progressive replace" href="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?>" data-srcset="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?> 800w, <?php echo base_url('uploads/cattle/img/'.$value->foto); ?> 1200w" data-sizes="100vw">
+                <img class="card-img-top preview" src="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?>" alt="Card image cap">
+              </a>
+              <div class="card-body text-dark">
+                <h5 class="card-title"><?php echo $value->nama; ?></h5>
+                <p class="card-text p-y-1 w-100 py-2">Profit <?php echo $value->ekspektasi_profit_min; ?>-<?php echo $value->ekspektasi_profit_max; ?>%
+                <br>Periode <?php echo $value->lama_periode; ?> Tahun</p>
+              </div>
+              <div class="card-footer">
+                <a href="<?php echo site_url('cattle/view/'.$value->slug); ?>" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Detail</a>
+              </div>
+            </div>
+          </div>  
+        </div>  
+        <?php endforeach; ?>
+        
+      </div>
+    </div> 
+  </div> 
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/index'); ?>
+";}

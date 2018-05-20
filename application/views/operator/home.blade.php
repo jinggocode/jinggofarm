@@ -1,0 +1,99 @@
+@layout('_layout/admin/index')
+
+@section('title')Dashboard@endsection
+
+@section('content')
+<div id="page-content">
+    <!-- Blank Header 
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1>Dashboard</h1>
+                </div>
+            </div> 
+        </div> 
+    </div>
+    END Blank Header -->  
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Block -->
+            <div class="block"> 
+                <h1><b>Hallo</b> Rahmat Ramadhan</h1>
+
+                <!-- Block Content -->
+                <p>Anda login sebagai Administrator</p>
+                <!-- END Block Content -->
+            </div>
+            <!-- END Block -->
+        </div>
+    </div>
+
+
+    <!-- First Row -->
+    <div class="row">
+        <!-- Simple Stats Widgets -->
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget">
+                <div class="widget-content widget-content-mini text-right clearfix">
+                    <div class="widget-icon pull-left themed-background">
+                        <i class="gi gi-bookmark text-light-op"></i>
+                    </div>
+                    <h2 class="widget-heading h3">
+                        <strong><span data-toggle="counter" data-to="2835"></span></strong>
+                    </h2>
+                    <span class="text-muted">TERNAK</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget">
+                <div class="widget-content widget-content-mini text-right clearfix">
+                    <div class="widget-icon pull-left themed-background-success">
+                        <i class="gi gi-user text-light-op"></i>
+                    </div>
+                    <h2 class="widget-heading h3 text-success">
+                        <strong>+ <span data-toggle="counter" data-to="2862"></span></strong>
+                    </h2>
+                    <span class="text-muted">PENGGUNA</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget">
+                <div class="widget-content widget-content-mini text-right clearfix">
+                    <div class="widget-icon pull-left themed-background-warning">
+                        <i class="gi gi-up_arrow text-light-op"></i>
+                    </div>
+                    <h2 class="widget-heading h3 text-warning">
+                        <strong><span data-toggle="counter" data-to="1"></span> UNIT</strong>
+                    </h2>
+                    <span class="text-muted">TERJUAL</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget">
+                <div class="widget-content widget-content-mini text-right clearfix">
+                    <div class="widget-icon pull-left themed-background-danger">
+                        <i class="gi gi-wallet text-light-op"></i>
+                    </div>
+                    <h2 class="widget-heading h3 text-danger">
+                        <strong>Rp. <span data-toggle="counter" data-to="2000000"></span></strong>
+                    </h2>
+                    <span class="text-muted">SALDO</span>
+                </div>
+            </a>
+        </div>
+        <!-- END Simple Stats Widgets -->
+    </div>
+    <!-- END First Row -->
+</div>
+@endsection
+
+@section('script') 
+    <script src="{{base_url('assets/admin/js/pages/readyDashboard.js')}}"></script>
+    <script>$(function(){ ReadyDashboard.init(); });</script> 
+@endsection

@@ -1,0 +1,32 @@
+a:3:{s:4:"time";i:1517816057;s:3:"ttl";i:3600;s:4:"data";s:1897:"<nav class="navbar fixed-top navbar-expand-md bg-secondary navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#"><b>  <img src="https://i.imgur.com/nvFaZQC.png" width="160"></b></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"> </ul>
+      <ul class="navbar-nav right">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="<?php echo site_url(); ?>"><i class="fa d-inline fa-lg fa-home"></i> Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="<?php echo site_url('cattle'); ?>"><i class="fa d-inline fa-lg fa-list"></i> Daftar Ternak</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="<?php echo site_url('faq'); ?>"><i class="fa d-inline fa-lg fa-question-circle"></i> FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="<?php echo site_url('help'); ?>"><i class="fa d-inline fa-lg fa-envelope-o"></i> Bantuan</a>
+        </li>
+      </ul>
+      <div class="btn-group px-3">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa d-inline fa-lg fa-user-circle-o"></i>&nbsp; Akun </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="<?php echo site_url('auth/'); ?>">Login</a> 
+          <a class="dropdown-item" href="<?php echo site_url('auth/register'); ?>">Daftar</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+</nav><br><br>
+<div class="mb-3"></div>";}

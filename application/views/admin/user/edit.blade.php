@@ -1,0 +1,182 @@
+@layout('_layout/admin/index')
+
+@section('title')Edit Pengguna @endsection
+
+@section('style')
+<link rel="stylesheet" href="{{base_url()}}assets/vendor/dropzone/dropzone.min.css">
+@endsection
+
+@section('content')
+<div id="page-content">
+    <!-- Blank Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1><a href="{{site_url('admin/user')}}"><i class="fa fa-arrow-left"></i></a> Edit Pengguna</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- END Blank Header -->
+
+<br>
+    <div class="row">
+        <div class="col-sm-6 col-lg-12">
+            <!-- Form Alert -->
+            @if (!empty(validation_errors()))
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><strong>Peringatan</strong></h4>
+                <p>{{validation_errors()}}</p>
+            </div>
+            @endif
+            <!-- END Form Alert -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form Block -->
+            <div class="block">
+
+                <form action="{{site_url('admin/'.$page.'/update')}}" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
+                {{$csrf}}
+                {{form_hidden('id', $data->id)}}
+
+                    <div class="form-group">
+                      <label for="first_name" class="col-sm-2 control-label">Nama</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="first_name" class="form-control" value="{{$data->first_name}}" id="first_name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="col-sm-2 control-label">Email</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="email" class="form-control" value="{{$data->email}}" id="email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="group_id" class="col-sm-2 control-label">Hak Akses</label>
+                      <div class="col-sm-6">
+                        <select name="group_id" class="form-control" id="group_id">
+                          <option value="">- Pilih Hak Akses -</option>
+                          <option {{($data->group_id == '1')?'selected':''}} value="1">Admin</option>
+                          <option {{($data->group_id == '2')?'selected':''}} value="2">Operator</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-sm-2 control-label">Password</label>
+                      <div class="col-sm-6">
+                        <input type="password" name="password" class="form-control" placeholder="Isi bila ingin mengganti" id="password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password_confirm" class="col-sm-2 control-label">Ulangi Passowrd</label>
+                      <div class="col-sm-6">
+                        <input type="password" name="password_confirm" class="form-control"  id="password_confirm">
+                      </div>
+                    </div>
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-send"></i> Ubah</button>
+                            <button type="reset" class="btn btn-effect-ripple btn-danger" style="overflow: hidden; position: relative;"><i class="fa fa-refresh"></i> Reset</button>
+                            <a href="{{site_url('admin/'.$page)}}" class="btn btn-effect-ripple btn-warning" style="overflow: hidden; position: relative;"><i class="fa fa-chevron-left"></i> Kembali</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END Horizontal Form Block -->
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('script')
+    <script src="{{base_url('assets/admin/')}}js/money.js"></script>
+
+    <script src="{{base_url()}}assets/vendor/dropzone/dropzone.min.js"></script>
+    <script src="{{base_url('assets/admin/')}}js/pages/formsComponents.js"></script>
+    <script type="text/javascript" src="{{base_url('assets/admin/js/plugins/datetime/jquery.datetimepicker.min.js')}}"></script>
+    <script type="text/javascript" src="{{base_url('assets/admin/js/plugins/datetime/jquery.datetimepicker.full.min.js')}}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("[type='date']").prop('type', 'text').datetimepicker();
+        });
+    </script>
+    <script>$(function(){ FormsComponents.init(); });</script>
+    <script type="text/javascript">
+    var articles = (function(){
+        // bind events
+        $("[type='file']").on('change', eventPreviewGambar);
+
+        // Events
+        function eventPreviewGambar(event){
+            readURL(event.target);
+        }
+
+        function readURL(input){
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.image-preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    })();
+    </script>
+    <script type="text/javascript">
+    Dropzone.autoDiscover = false;
+
+    var foto_upload= new Dropzone(".dropzone",{
+
+    url: "<?php echo base_url('admin/cattle/upload_foto') ?>",
+    maxFilesize: 2,
+    method:"post",
+    acceptedFiles:"image/*",
+    paramName:"foto",
+    dictInvalidFileType:"Type file ini tidak dizinkan",
+    addRemoveLinks:true,
+    success: function(){
+        $.LoadingOverlay("show");
+        $.LoadingOverlay("hide");
+    }
+    });
+
+
+    //Event ketika Memulai mengupload
+    foto_upload.on("sending",function(a,b,c){
+        a.token=Math.random();
+        c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+    });
+
+    //Event ketika foto dihapus
+    foto_upload.on("removedfile",function(a){
+        $.LoadingOverlay("show");
+        var token=a.token;
+        $.ajax({
+            type:"post",
+            data:{token:token},
+            url:"<?php echo base_url('admin/cattle/remove_foto') ?>",
+            cache:false,
+            dataType: 'json',
+            success: function(){
+                $.LoadingOverlay("hide");
+            },
+            error: function(){
+                console.log("Error");
+            }
+        });
+    });
+
+    $(window).bind('beforeunload', function(){
+      return 'Sebelum meninggalkan halaman, pastikan upload foto kosong!';
+    });
+
+
+</script>
+@endsection

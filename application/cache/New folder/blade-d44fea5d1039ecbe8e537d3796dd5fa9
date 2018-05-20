@@ -1,0 +1,200 @@
+a:3:{s:4:"time";i:1518282136;s:3:"ttl";i:3600;s:4:"data";s:9252:"
+
+<?php $this->_section_start('title'); ?><?php echo $data->nama; ?><?php $this->_section_end(); ?>
+<?php $this->_section_start('menu name'); ?><strong>Detail Ternak</strong><?php $this->_section_end(); ?>
+  
+<?php $this->_section_start('content'); ?> 
+<div class="text-center opaque-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-3 mb-4 text-left"><?php echo $data->nama; ?></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <a class="progressive replace" href="<?php echo base_url('uploads/cattle/img/'.$data->foto); ?>" data-srcset="<?php echo base_url('uploads/cattle/img/'.$data->foto); ?> 800w, <?php echo base_url('uploads/cattle/img/'.$data->foto); ?> 1200w" data-sizes="100vw" class="progressive replace">
+            <img class="d-block mx-auto img-fluid preview" src="<?php echo base_url('uploads/cattle/img/'.$data->foto); ?>">
+          </a>
+          <a class="btn btn-lg btn-block btn-outline-secondary bg-white text-secondary btn-hover my-4" href="">Prospek Ternak.pdf</a>
+
+          <!-- Button trigger modal -->
+          <div class="mb-3">
+            <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+              <i class="fa fa-line-chart" aria-hidden="true"></i> Simulasi Keuntungan
+            </button>
+          </div>
+        </div>
+        <div class="col-md-7 my-1">
+          <div class="col-md-12">
+            <!-- <div class="progress">
+              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+            </div> -->
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td style="width: 40%">
+                    <h5>Biaya Ternak</h5>
+                  </td>
+                  <td><?php echo money($data->biaya); ?></td>
+                </tr> 
+                <tr>
+                  <td>
+                    <h5>Sisa Unit</h5>
+                  </td>
+                  <td><?php echo $data->jumlah_unit; ?> Unit</td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Biaya per Unit</h5>
+                  </td>
+                  <td><strong><?php echo money($data->biaya/$data->jumlah_unit); ?></strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Periode Ternak</h5>
+                  </td>
+                  <td><?php echo $data->lama_periode; ?> Tahun</td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Keterangan</h5>
+                  </td>
+                  <td>Unit merupakan hasil pembagian dari kebutuhan dana ternak sesuai yang telah kami tentukan</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card">
+              <div class="card-header">Ayo Mulai Investasi! </div>
+              <div class="card-body">
+                <h5>Masukan Jumlah Unit Investasi</h5>
+                <form action="<?php echo site_url('investor/payment/process'); ?>" method="post">
+                  <?php echo $csrf; ?>
+                  <?php echo form_hidden('slug', $data->slug);; ?>
+
+                  <div class="form-group"> <label>Unit</label> 
+                    <select class="form-control" name="unit">
+                      <?php for ($i = 1; $i <= $data->jumlah_unit; $i++) { ?>
+                        <option value="1"><?php echo $i; ?></option> 
+                      <?php } ?>
+                    </select> 
+                  </div>
+                  <p align="center">Pelajari <a href="">Syarat dan ketentuan</a> yang berlaku sebelum memulai Investasi!</p>
+                  <input type="submit" class="btn btn-primary btn-block" value="Beri Dana">
+                </form>
+              </div>
+            </div>
+            <br> </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="">Deskripsi</h1>
+          <p class="lead">Sapi holstein atau frisia merupakan salah satu trah sapi perah yang sekarang dikenal sebagai sapi yang terbanyak memproduksi susu di peternakan susu. Berasal dari Eropa, sapi holstein dikembangbiakkan di daerah yang sekarang menjadi Provinsi
+            Holland Utara dan Friesland, Belanda (jadi bukan dari Holstein, Jerman). Sapi holstein berukuran besar dengan totol-totol warna hitam dan putih di sekujur tubuhnya. Dalam arti sempit, sapi holstein memiliki telinga hitam, kaki putih, dan ujung
+            ekor yang putih. Di Indonesia sapi jenis FH ini dapat menghasilkan susu 20 liter/hari, tetapi rata-rata produksi 10 liter/hari atau 3.050 kg susu 1 kali masa laktasi. Sapi jantan jenis FH ini dapat mencapai berat badan 1.000 kg, dan berat
+            badan ideal betina adalah 635 kg. Di Amerika sapi jenis FH ini dapat memproduksi lebih dari 7.000 kg susu dalam 1 kali masa laktasi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('modal'); ?>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Simulasi Keuntungan Investasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="display-5">Biaya per Unit = <strong><?php echo money($data->biaya/$data->jumlah_unit); ?></strong></p><hr>
+
+        <form class="mb-2"> 
+          <div class="form-group">
+            <label for="persen_ekspektasi">Ekspektasi Profit 40 - 50 % <i data-toggle="tooltip" data-placement="top" title="Perhitungannya dapat dilihat pada file prospek ternak" class="fa fa-question-circle" ></i></label>
+            <select class="form-control" id="persen_ekspektasi"> 
+              <option value="40">40 %</option>
+              <option value="50">50 %</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="unit">Pilih Jumlah Unit</label>
+            <select class="form-control" id="unit">
+              <option value="14000000">1</option>
+              <option value="26000000">2</option> 
+            </select>
+          </div>
+          <input type="button" class="btn btn-secondary" onclick="calculateSimulasi()" value="Simulasi">
+        </form>
+
+        <div id="hasil"  style="display:none;">
+          <table class="table table-bordered">
+            <tr>
+              <td colspan="2"><b>Perkiraan Jumlah Profit</b></td>
+            </tr>
+            <tr>
+              <td>Periode 4 Tahun</td>
+              <td align="right">Profit = <b><span id="profit"></span></b></td>
+            </tr>
+          </table>
+   
+          <table class="table table-striped"> 
+            <tr>
+              <td><b>Jumlah Modal</b></td>
+              <td><b><span id="modal"></span></b></td>
+            </tr>
+            <tr>
+              <td><b>Total</b></td>
+              <td><b><span id="total"></span></b></td>
+            </tr>
+          </table>
+          <p>Catatan <br>
+            <i>Simulasi dimaksud merupakan ekspektasi profit yang didapatkan. Detail perhitungannya silahkan download file prospek ternak</i></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button> 
+      </div>
+    </div>
+  </div>
+</div>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('script'); ?>
+<script type ="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+function calculateSimulasi()
+{
+  document.getElementById('hasil').style.display = "block";
+
+  persen_ekspektasi = document.getElementById("persen_ekspektasi").value;
+  unit              = document.getElementById("unit").value;
+
+  modal = unit;
+  profit = (persen_ekspektasi/100)*unit;
+  roi    = profit/unit*100;
+  total  = Number(unit) + profit; 
+
+  document.getElementById("profit").innerHTML = toRp(profit);
+  // document.getElementById("roi").innerHTML = roi;
+  document.getElementById("modal").innerHTML = toRp(modal);
+  document.getElementById("total").innerHTML = toRp(total);
+}
+function toRp(a,b,c,d,e){e=function(f){return f.split('').reverse().join('')};b=e(parseInt(a,10).toString());for(c=0,d='';c<b.length;c++){d+=b[c];if((c+1)%3===0&&c!==(b.length-1)){d+='.';}}return'Rp.\t'+e(d)}
+
+</script>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/index'); ?>
+";}

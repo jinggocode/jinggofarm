@@ -1,0 +1,21 @@
+a:3:{s:4:"time";i:1514296502;s:3:"ttl";i:3600;s:4:"data";s:510:"
+
+<?php $this->_section_start('title'); ?>Nama Ternak<?php $this->_section_end(); ?>
+<?php $this->_section_start('menu name'); ?><strong>Detail Ternak</strong><?php $this->_section_end(); ?>
+
+<?php $this->_section_start('style'); ?>
+<style>
+  td, th {
+    padding: 7px 5px; 
+  }
+  table {
+    font-size: small;
+  } 
+</style>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?> 
+
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

@@ -1,0 +1,89 @@
+a:3:{s:4:"time";i:1518283046;s:3:"ttl";i:3600;s:4:"data";s:3602:"<?php 
+if (!$this->ion_auth->logged_in())
+{
+  // redirect them to the login page
+  redirect('auth/login', 'refresh');
+} 
+
+$user = $this->ion_auth->user()->row();
+
+if ($user->group_id == 1){
+    redirect('auth/logout', 'refresh');
+} else if ($user->group_id == 2){
+    redirect('auth/logout', 'refresh');
+}
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><?php echo $this->_yield('title'); ?> | Beternak Online Mudah dan Menguntungkan!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+  <!-- <link rel="stylesheet" href="https://v40.pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css">  -->  
+  <link rel="stylesheet" href="<?php echo base_url('assets/style.css'); ?>" type="text/css"> 
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/progressive-image/css/progressive-image.css"> 
+
+  <link rel="stylesheet" href="<?php echo site_url(); ?>assets/investor/loadpage.css"> 
+  <script type="text/javascript" src="https://app.investasiternak.id/assets/js/pace.js"></script> 
+
+  <style>
+  .btn:focus,.btn:active {
+     outline: none !important;
+     box-shadow: none;
+  } 
+  .card-hover:hover{ 
+     box-shadow: 4px 8px 20px grey;
+    -webkit-transition:  box-shadow .2s ease-in;
+  } 
+  .btn-hover:hover{ 
+     box-shadow: 4px 8px 20px grey;
+    -webkit-transition:  box-shadow .2s ease-in;
+  } 
+  </style>
+  <?php echo $this->_yield('style'); ?>
+</head> 
+
+<body>
+  <?php echo $this->_include('_layout/investor/navbar'); ?>
+
+  <?php echo $this->_yield('content'); ?>
+
+  <div class="py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <img src="https://i.imgur.com/nvFaZQC.png" width="250">
+          <p class="lead">CV. Nusantara Fresh Milk <br>
+          Genteng, Banyuwangi</p> 
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.facebook.com" target="_blank"><i class="fa fa-fw fa-facebook fa-3x text-white"></i></a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://twitter.com" target="_blank"><i class="fa fa-fw fa-twitter fa-3x text-white"></i></a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.instagram.com" target="_blank"><i class="fa fa-fw fa-instagram text-white fa-3x"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-3 text-center">
+          <p>© Copyright 2018 Jinggofarm - All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php echo $this->_yield('modal'); ?>
+
+  <script src="<?php echo base_url(); ?>assets/vendor/progressive-image/js/progressive-image.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> 
+
+</body>
+
+</html>";}

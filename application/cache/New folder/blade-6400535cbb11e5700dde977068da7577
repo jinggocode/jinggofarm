@@ -1,0 +1,31 @@
+a:3:{s:4:"time";i:1514768327;s:3:"ttl";i:3600;s:4:"data";s:1655:"<div class="navbar-fixed" style="z-index: 100;">
+  <nav>
+    <div class="nav-wrapper blue darken-2"> 
+      <img class="brand-logo center responsive-img hide-on-med-and-down" width="230" style="padding-top: 2px" src="<?php echo base_url('assets/img/logo-2.png'); ?>">
+      <img class="brand-logo center responsive-img hide-on-large-only" width="200" style="padding-top: 2px" src="<?php echo base_url('assets/img/logo-2.png'); ?>">
+      
+      <!-- Desktop  -->
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class=" material-icons">menu</i></a>  
+   
+    </div>
+  </nav>
+</div>
+
+ <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="<?php echo base_url(); ?>assets/img/side-background.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="<?php echo base_url('assets/img/investor.png'); ?>"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="<?php echo base_url(); ?>"><i class="material-icons">home</i>Home</a></li> 
+    <li><a href="#!"><i class="material-icons">view_list</i>Daftar Ternak</a></li> 
+    <li><a href="#!"><i class="material-icons">help</i>FAQ</a></li> 
+    <li><a href="#!"><i class="material-icons">live_help</i>Bantuan</a></li> 
+    <li><div class="divider"></div></li> 
+    <li><a href="#!"><i class="material-icons">create</i>Daftar</a></li> 
+    <li><a href="#!"><i class="material-icons">account_circle</i>Masuk (Login)</a></li>  
+  </ul> 
+";}

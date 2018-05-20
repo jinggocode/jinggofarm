@@ -1,0 +1,96 @@
+a:3:{s:4:"time";i:1518274703;s:3:"ttl";i:3600;s:4:"data";s:4165:"
+
+<?php $this->_section_start('title'); ?>Beranda<?php $this->_section_end(); ?>  
+
+<?php $this->_section_start('content'); ?> 
+<div class="py-5 gradient-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+  <div class="container py-1">
+      <div class="row">
+        <!--<div class="col-md-3 text-white">
+          <img class="img-fluid d-block mx-auto mb-5" src="https://pingendo.github.io/templates/sections/assets/footer_logo2.png"> </div>-->
+        <div class="col-md-9 text-white align-self-center">
+          <h2 class="mb-1 display-5">Selamat Datang Rahmat Ramadhan di Jinggofarm!</h2> 
+        </div>
+      </div>
+  </div>
+</div> 
+
+<div class="py-4">
+  <div class="container">
+    <!--<div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Selesaikan Transaksi anda sebelum Senin, 12 Januari 2018 </h4>
+      <p>Investasi Sapi Perah FH (1 Unit) <b>Rp. 20.000.000</b></p>
+      <hr>
+      <p class="mb-0">
+        <a href="" class="btn btn-primary">Lihat Selengkapnya</a></p>
+    </div>-->
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row mb-5">
+          <div class="col-md-5">
+            <div class="card border-secondary mb-3"> 
+              <div class="card-body text-secondary">
+                <h5 class="card-title text-center">Ternak Saya</h5>
+                <p class="card-text text-center" style="font-size: 50px;"><b>2</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card border-secondary mb-3"> 
+              <div class="card-body text-secondary">
+                <h5 class="card-title text-center">Profit</h5>
+                <p class="card-text text-center" style="font-size: 50px;"><b>Rp. 20.000.000</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="">Pilihan Investasi Terbaik untuk Anda!</h2>
+        <hr class="text-secondary border border-dark mx-0" style="width: 10%">
+
+        <div class="row mb-5">
+          <?php foreach($ternak as $value): ?>  
+          <div class="col-md-6 my-3" style="display: flex;"> 
+            <div class="card-deck">
+              <div class="card card-hover border-secondary">
+                <a class="progressive replace" href="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?>" data-srcset="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?> 800w, <?php echo base_url('uploads/cattle/img/'.$value->foto); ?> 1200w" data-sizes="100vw">
+                  <img class="card-img-top preview" src="<?php echo base_url('uploads/cattle/img/'.$value->foto); ?>" alt="Card image cap">
+                </a>
+                <div class="card-body text-dark">
+                  <h5 class="card-title"><?php echo $value->nama; ?></h5>
+                  <p class="card-text p-y-1 w-100 py-2">Profit <?php echo $value->ekspektasi_profit_min; ?>-<?php echo $value->ekspektasi_profit_max; ?>%
+                  <br>Periode <?php echo $value->lama_periode; ?> Tahun</p>
+                </div>
+                <div class="card-footer">
+                  <a href="<?php echo site_url('investor/cattle/view/'.$value->slug); ?>" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Detail</a>
+                </div>
+              </div>
+            </div>  
+          </div>  
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Informasi
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</div>
+  
+<?php $this->_section_end(); ?> 
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

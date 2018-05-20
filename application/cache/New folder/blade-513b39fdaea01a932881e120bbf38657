@@ -1,0 +1,49 @@
+a:3:{s:4:"time";i:1517636563;s:3:"ttl";i:3600;s:4:"data";s:2160:"
+
+<?php $this->_section_start('title'); ?>Konfirmasi Bukti Transfer<?php $this->_section_end(); ?> 
+  
+<?php $this->_section_start('content'); ?>  
+<div class="text-center opaque-overlay bg-primary">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12 text-white">
+        <h1 style="margin-bottom: -4px" class="text-left display-5"><i class="fa fa-money"></i>&nbsp;Konfirmasi Pembayaran</h1>
+        <hr class="text-white border border-light mx-0" style="width: 20%"> </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">×</button>
+          <h4 class="alert-heading">Segera Lakukan Konfirmasi Pembayaran!</h4>
+          <p class="mb-0">Batas Waktu sampai dengan <b>12, Januari 2018 15:00</b></p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header bg-primary text-light border border-primary"><i class="fa fa-credit-card-alt"></i>&nbsp; Pilih Metode Pembayaran</div>
+              <div class="card-body">
+                <form class="" method="post" action="https://formspree.io/">
+                  <div class="form-group"> <label>Foto (*max 5mb)</label>
+                    <input type="file" name="bukti_tf" class="form-control" placeholder="Enter email"> </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
+            <p class="my-4">
+              <a class="btn btn-lg btn-block btn-success text-light" href="<?php echo site_url('investor/mycattle'); ?>"><i class="fa fa-check-square-o"></i>&nbsp;Konfirmasi</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/investor/index'); ?>
+";}

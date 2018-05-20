@@ -1,0 +1,60 @@
+a:3:{s:4:"time";i:1517809608;s:3:"ttl";i:3600;s:4:"data";s:3443:"<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"   crossorigin="anonymous">
+ 
+    <link rel="stylesheet" href="<?php echo site_url(); ?>assets/investor/loadpage.css"> 
+    <script type="text/javascript" src="https://app.investasiternak.id/assets/js/pace.js"></script> 
+
+    <title>Hello, world!</title>
+  </head>
+
+  <body style="background-image: url(&quot;<?php echo base_url('assets/img/banner.png'); ?>&quot;); background-size:  cover;background-position: center center;
+          background-repeat:  no-repeat;
+          background-attachment: fixed;"> 
+    <div class="py-5 container">
+      <div class="row"> 
+        <div class="col-md-6 align-self-center  text-white">
+          <img src="<?php echo base_url('assets/img/logo.png'); ?>" class="responsive-img" width="200" alt="">
+          <h1 class="text-center text-md-left display-3">Investasi Berdampak</h1>
+          <p class="lead">Ayo berinvestasi di Jinggofarm! Setiap investasi anda mensejahterakan mereka yang kurang mampu</p>
+        </div>
+        <div class="col-md-6" id="book">
+          <div class="card py-3">
+            <div class="card-body">
+              <h3 class="mb-1">Pendaftaran</h3>
+              <hr class="secondary border-dark mx-0" style="border-width: 5px; width: 8%; margin-top: 2px; margin-bottom: 10px">
+
+               <p align="center">Sudah punya akun? <a href="<?php echo site_url('auth'); ?>">Login</a></p>
+              <form action="https://formspree.io/YOUREMAILHERE">
+                <div class="form-group"> <label>Nama</label>
+                  <input type="text" class="form-control" placeholder="Masukan Nama">
+                </div>  
+                <div class="form-group"> <label>Email</label>
+                  <input type="text" class="form-control" placeholder="Masukan Email">
+                </div> 
+                <div class="form-group"> <label>Nomor HP</label>
+                  <input type="text" class="form-control" placeholder="Masukan Nama">
+                </div> 
+                <p>Dengan melakukan pendaftaran, anda telah menyetujui <a href="">Persyaratan dan Ketentuan</a> yang berlaku!</p>
+
+                <button type="submit" class="btn mt-2 btn-outline-secondary">Daftar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>";}

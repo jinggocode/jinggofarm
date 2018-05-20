@@ -1,0 +1,39 @@
+a:3:{s:4:"time";i:1497504248;s:3:"ttl";i:3600;s:4:"data";s:1700:"
+
+<?php $this->_section_start('title'); ?>
+	List Mahasiswa
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<form action="<?php echo  site_url('student/save') ; ?>" method="post">
+<?php echo  $csrf ; ?>
+  <div class="form-group">
+    <label for="NIM">NIM</label>
+    <?php echo  form_error('nim') ; ?>
+    <input value="<?php echo  (isset($student['nim'])) ? $student['nim'] : '' ; ?>" name="nim" type="text" class="form-control" id="NIM" placeholder="NIM">
+  </div>
+  <div class="form-group">
+    <label for="Nama">Nama</label>
+    <input value="<?php echo  (isset($student['nama'])) ? $student['nama'] : '' ; ?>" name="nama" type="text" class="form-control" id="Nama" placeholder="Nama">
+  </div>
+  <div class="form-group">
+    <label for="Username">Username</label>
+    <input value="<?php echo  (isset($student['username'])) ? $student['username'] : '' ; ?>" name="username" type="text" class="form-control" id="Username" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="Gender">Gender</label>
+    <select name="gender"  class="form-control" id="Gender">
+    	<option value="">- Gender -</option>
+    	<option value="L">Laki - laki</option>
+    	<option value="P">Perempuan</option>
+    </select> 
+  </div>
+  <div class="form-group">
+    <label for="Address">Address</label>
+    <textarea placeholder="Address" name="address" id="Address" class="form-control"> <?php echo  (isset($student['address'])) ? $student['address'] : '' ; ?></textarea> 
+  </div>
+  <button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('layout/index'); ?>
+";}

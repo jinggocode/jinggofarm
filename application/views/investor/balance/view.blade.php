@@ -1,0 +1,89 @@
+@layout('_layout/investor/index')
+
+@section('title')Ternak Saya@endsection 
+  
+@section('content')     
+<div class="text-center opaque-overlay" style="background-image: url(&quot;https://i.imgur.com/OJIcIns.jpg&quot;);">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12 text-white">
+        <h1 class="display-5 mb-3 text-center">Sapi Fresian Holstein (FH)</h1>
+        <h4 class="display-5 text-center">5 Unit</h4> 
+      </div> 
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <img class="d-block mx-auto img-thumbnail img-fluid" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG">  <br>
+      </div>
+      <div class="col-md-7 my-1">
+        <div class="col-md-12">
+          <table class="table">
+            <tbody>
+              <thead class="bg-primary text-white">
+                <th colspan="2"><h3>Informasi</h3></th>
+              </thead>
+              <tr>
+                <td style="width: 40%">
+                  <h5>Lama Periode</h5>
+                </td>
+                <td>3 Tahun</td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Sisa Periode</h5>
+                </td>
+                <td>24 Bulan 12 Hari</td>
+              </tr>
+            </tbody>
+          </table>  
+          <br> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+         <ul class="nav nav-tabs">
+            <li class="nav-item" id="lap-perkembangan">
+              <a class="nav-link active bg-primary text-white" href="#">Laporan Perkembangan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Laporan Penggunaan Dana</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Laporan Penjualan Hasil Ternak</a>
+            </li> 
+          </ul>
+          <table class="table table-responsive table-hover mt-3">
+            <thead class="text-dark bg-light">
+              <tr>
+                <th style="width: 5%">#</th>
+                <th style="width: 60%">Deskripsi</th>
+                <th style="width: 25%">Foto</th> 
+                <th class="w-25">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><b>Senin, 12 Januari 2018 13:00</b> <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
+                <td><img width="200" src="https://3.bp.blogspot.com/-obVSA_LEvu8/V45FMK1JRbI/AAAAAAAAD6E/8Dq9-SaCyewp0Y9AueMUGuWCfxW-dfRcACLcB/s400/cara%2Bbudidaya%2Bsapi%2Bperah.JPG"></td> 
+                <td>
+                  <a href="{{site_url('mycattle/view')}}" class="btn text-light btn-sm btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</a>
+                </td>
+              </tr> 
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

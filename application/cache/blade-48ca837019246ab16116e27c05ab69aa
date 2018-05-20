@@ -1,0 +1,214 @@
+a:3:{s:4:"time";i:1525626706;s:3:"ttl";i:3600;s:4:"data";s:12485:"
+
+<?php $this->_section_start('title'); ?><?php echo $data_ternak->nama; ?><?php $this->_section_end(); ?> 
+
+<?php $this->_section_start('content'); ?>
+<div id="page-content">
+    <!-- Blank Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1><a href="<?php echo site_url('admin/'.$page); ?>"><i class="fa fa-arrow-left"></i></a> <?php echo $data_ternak->nama; ?></h1>
+                </div>
+            </div> 
+        </div>  
+
+    </div>
+    <!-- END Blank Header -->
+  
+    <div class="row">
+        <div class="col-md-12 col-lg-3">
+            <!-- Horizontal Form Block -->
+            <div class="widget">   
+                <table class="table table-striped ">
+                    <tr>
+                        <td style="width: 40%">Biaya</td>
+                        <td><b><?php echo money($data_ternak->biaya); ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Unit</td>
+                        <td><b><?php echo $data_ternak->jumlah_unit; ?></b></td>
+                    </tr>
+                    <tr>
+                        <td>Lama Periode</td>
+                        <td><b><?php echo $data_ternak->lama_periode; ?> Tahun</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>Jumlah Bagi hasil</b></td> 
+                    </tr>
+                    <tr>
+                        <td>Peternak</td>
+                        <td><b><?php echo $data_ternak->bghasil_peternak; ?>%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Investor</td>
+                        <td><b><?php echo $data_ternak->bghasil_investor; ?>%</b></td>
+                    </tr>
+                </table>       
+
+            </div>
+            <!-- END Horizontal Form Block --> 
+        </div> 
+
+        <div class="col-md-12 col-lg-9">
+            <div class="col-md-7 col-lg-12">
+                <a href="<?php echo site_url('admin/'.$page.'/add_grow_report/'.$data_ternak->id); ?>" class="btn btn-success" style="margin-bottom: 10px"><i class="fa fa-plus-square"></i> Tambah Laporan Perkembangan</a>
+                <a href="<?php echo site_url('admin/'.$page.'/add_financial_report/'.$data_ternak->id); ?>" class="btn btn-primary" style="margin-bottom: 10px"><i class="fa fa-plus-square"></i> Tambah Laporan Keuangan</a>
+                <div class="block full">
+                    <!-- Block Tabs Title -->
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                        </div>
+                        <ul class="nav nav-tabs" data-toggle="tabs">
+                            <li class="active"><a href="#laporan-perkembangan"><b>Laporan Perkembangan</b></a></li>
+                            <li><a href="#laporan-keuntungan"><b>Laporan Keuangan</b></a></li> 
+                        </ul>
+                    </div>
+                    <!-- END Block Tabs Title -->
+
+                    <!-- Tabs Content -->
+                    <div class="tab-content">
+                        <!-- Perkembangan -->
+                        <div class="tab-pane active" id="laporan-perkembangan">
+                            <div class="timeline block-content-full">
+                                <table id="general-table" class="table table-striped table-bordered table-vcenter table-resp">
+                                    <thead>
+                                        <tr> 
+                                            <th style="width: 200px;">Nama Laporan</th>
+                                            <th style="width: 600px;">Deskripsi</th> 
+                                            <th style="width: 160px;" class="text-center"><i class="fa fa-flash"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if(empty($data_perkembangan)): ?>
+                                        <tr>
+                                            <td colspan="6" align="center">Tidak ada Data</td>
+                                        </tr>
+                                    <?php else: ?>
+                                        <?php $no = 1 ?>
+                                        <?php foreach($data_perkembangan as $row): ?> 
+                                        <tr> 
+                                            <td> 
+                                                <?php echo ($row->jenis_laporan==0)?'<span class="label label-warning">Perkembangan Ternak</span>':''; ?> 
+                                                <?php echo ($row->jenis_laporan==1)?'<span class="label label-primary">Penggunaan Dana</span>':''; ?> 
+                                                <?php echo ($row->jenis_laporan==2)?'<span class="label label-info">Penjualan Hasil</span>':''; ?> 
+                                            </td>
+                                            <td>
+                                                <b><?php echo dateFormatBulan(3, $row->created_at); ?></b> <br><?php echo $row->deskripsi; ?>
+                                            </td> 
+                                            <td class="text-center">
+                                                <a id="lihat_perkembangan" data-id="<?php echo $row->id; ?>" data-toggle="modal" href="#modal-regular" class="btn btn-effect-ripple btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                                <a href="<?php echo site_url('admin/reporter/edit_grow_report/'.$row->id); ?>" data-toggle="tooltip" title="Edit Data" class="btn btn-effect-ripple btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+                                                <a href="<?php echo site_url('admin/reporter/delete_grow_report/'.$row->id.'/'.$data_ternak->id); ?>" onclick="return confirm('Apakah anda yakin menghapusnya?')" data-toggle="tooltip" title="Hapus" class="btn btn-effect-ripple btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                            </td>
+                                        </tr> 
+                                        <?php endforeach; ?> 
+                                    <?php endif ?> 
+                                    </tbody>
+                                </table> 
+                                <div align="left" style="margin-bottom: 20px; margin-left: 20px">
+                                    <a class="btn btn-primary"><i class="fa fa-eye"></i> Lihat Semuanya</a>
+                                </div>  
+                            </div>
+                        </div>
+                        <!-- END Perkembangan -->
+
+                        <!-- Keuangan -->
+                        <div class="tab-pane" id="laporan-keuntungan"> 
+                            <div class="timeline block-content-full">
+                                <table id="general-table" class="table table-striped table-bordered table-vcenter table-resp">
+                                    <thead>
+                                        <tr>  
+                                            <th style="width: 300px;">Nama / Deskripsi</th>
+                                            <th>Jumlah</th> 
+                                            <th>Foto</th> 
+                                            <th style="width: 120px;" class="text-center"><i class="fa fa-flash"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if(empty($data_keuangan)): ?>
+                                        <tr>
+                                            <td colspan="6" align="center">Tidak ada Data</td>
+                                        </tr>
+                                    <?php else: ?>
+                                        <?php $no = 1 ?>
+                                        <?php foreach($data_keuangan as $row): ?> 
+                                        <tr> 
+                                            <td> 
+                                                <?php echo ($row->jenis==0)?'<span class="label label-warning">Penjualan</span>':''; ?> 
+                                                <?php echo ($row->jenis==1)?'<span class="label label-primary">Penggunaan Dana</span>':''; ?> 
+                                            <br>
+                                                <b><?php echo $row->created_at; ?></b> <br><?php echo $row->deskripsi; ?> 
+                                            </td>
+                                            <td><?php echo money($row->jumlah); ?></td>
+                                            <td>
+                                                <img src="<?php echo base_url('uploads/reporter/'.$row->foto); ?>" width="200" alt="">
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="<?php echo site_url('admin/reporter/edit_finance_report/'.$row->id); ?>" data-toggle="tooltip" title="Edit Data" class="btn btn-effect-ripple btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+                                                <a href="<?php echo site_url('admin/reporter/delete_finance_report/'.$row->id.'/'.$data_ternak->id); ?>" data-toggle="tooltip" onclick="return confirm('Apakah anda yakin menghapusnya?')" title="Hapus" class="btn btn-effect-ripple btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                            </td>
+                                        </tr> 
+                                        <?php endforeach; ?> 
+                                    <?php endif ?> 
+                                    </tbody>
+                                </table> 
+                                <div align="left" style="margin-bottom: 20px; margin-left: 20px">
+                                    <a class="btn btn-primary"><i class="fa fa-eye"></i> Lihat Semuanya</a>
+                                </div>  
+                            </div>
+                        </div>
+                        <!-- END Keuntungan -->
+
+                        <!-- Followers -->
+                        <div class="tab-pane" id="profile-followers">
+                            <div class="block-content-full"> 
+                            </div>
+                        </div>
+                        <!-- END Followers -->
+                    </div>
+                    <!-- END Tabs Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $this->_section_end(); ?>  
+
+<?php $this->_section_start('modal'); ?>
+<!-- Regular Modal -->
+<div id="modal-regular" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title"><strong>Detail Laporan</strong></h3>
+            </div>
+            <div class="modal-body" id="detail-perkembangan"> 
+
+            </div>
+            <div class="modal-footer"> 
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Regular Modal -->
+
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('script'); ?>
+<script>
+$(document).on('click','#lihat_perkembangan',function(){   
+    var id = $(this).data("id"); 
+    
+    $.LoadingOverlay("show");   
+    $('#detail-perkembangan').load("<?php echo site_url('admin/reporter/detail_perkembangan/');?>"+id); 
+    $.LoadingOverlay("hide"); 
+});
+</script>
+<?php $this->_section_end(); ?>
+<?php echo $this->_include('_layout/admin/index'); ?>
+";}
