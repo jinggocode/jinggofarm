@@ -83,7 +83,7 @@ $config['salt_prefix']    = version_compare(PHP_VERSION, '5.3.7', '<') ? '$2a$' 
  | appropriately. If this variable set to 0, there is no maximum.
  */
 $config['site_title'] = 'Jinggofarm | Our Farm';       // Site Title, example.com
-$config['admin_email'] = 'admin@i-cow.id'; // Admin Email, admin@example.com
+$config['admin_email'] = 'mail@i-cow.id'; // Admin Email, admin@example.com
 $config['default_group']              = 'Operator';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
 $config['identity']                   = 'email';             // You can use any unique column in your table as identity column. The values in this column, alongside password, will be used for login purposes
@@ -98,7 +98,7 @@ $config['track_login_attempts']       = FALSE;               // Track the number
 $config['track_login_ip_address']     = TRUE;                // Track login attempts by IP Address, if FALSE will track based on identity. (Default: TRUE)
 $config['maximum_login_attempts']     = 3;                   // The maximum number of failed login attempts.
 $config['lockout_time']               = 600;                 // The number of seconds to lockout an account due to exceeded attempts
-$config['forgot_password_expiration'] = 0;                   // The number of milliseconds after which a forgot password request will expire. If set to 0, forgot password requests will not expire.
+$config['forgot_password_expiration'] = 0;                   // The number of milliseconds after which a forgot password request will expire. If set to 0, forgot password requests will not expire.w
 
 /*
  | -------------------------------------------------------------------------
@@ -120,19 +120,14 @@ $config['identity_cookie_name'] = 'identity';
  */
 $config['use_ci_email'] = TRUE; // Send Email using the builtin CI email class, if false it will return the code and the identity
 $config['email_config'] = array(
-	'mailtype' => 'html',
-  'charset' => 'utf-8',
-  'useragent' => 'Codeigniter',
-  'protocol'=> 'smtp',
+  'protocol' => 'smtp',
+  'smtp_host' => 'smtp.sendgrid.net',
+  'smtp_user' => 'apikey',
+  'smtp_pass' => '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',
+  'smtp_port' => 587,
+  'crlf' => "\r\n",
+  'newline' => "\r\n",
   'mailtype'=> "html",
-  'smtp_host'=> "ssl://smtp.gmail.com",//pengaturan smtp
-  'smtp_port'=> "465",
-  'smtp_timeout'=> "400",
-  'smtp_user'=> "sumantoshop101@gmail.com", // isi dengan email kamu
-  'smtp_pass'=> "yowesben", // isi dengan password kamu
-  'crlf'=> "\r\n",
-  'newline'=>"\r\n",
-  'wordwrap' => TRUE,
 );
 
 /*

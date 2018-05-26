@@ -190,8 +190,8 @@
           </div> -->
           
           <div class="alert alert-primary mt-3" role="alert">
-              <h4><i class="fa fa-bullhorn"></i> Informasi Penting</h4>
-              <p>lorem ipsum dolor sit amet</p>
+              <h4><i class="fa fa-bullhorn"></i> <strong>Informasi Penting</strong></h4>
+              <p>{{(isset($data->keterangan)?$data->keterangan:'-')}}</p>
           </div>
           <table class="table table-striped bg-white d-none d-sm-block">
 

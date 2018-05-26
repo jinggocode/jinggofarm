@@ -13,13 +13,14 @@ class Pullconfirm extends MY_Controller
 		$this->load->helper(array('dump','utility')); 
 		$this->load->model('balance_investor_model');  
 		$this->load->model('admin/pemilikternak_model');  
-		$this->load->model('admin/user_model');   
+		$this->load->model('admin/user_model');    
+		$this->load->model('admin/finance_model');    
 
         // $this->load->helper('utility');
 	}
 
 	public function index()
-    {
+    { 
         $start = $this->uri->segment(4, 0);  
 		$config['base_url'] = base_url() . 'admin/pullconfirm/index/';
 

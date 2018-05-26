@@ -92,7 +92,7 @@ class Cattle extends MY_Controller
 		$this->form_validation->set_rules('jumlah_unit', 'Jumlah Pembagian Unit', 'trim|required|max_length[2]');
 		$this->form_validation->set_rules('jumlah_sapi', 'Jumlah Sapi', 'trim|required|max_length[2]');
 		$this->form_validation->set_rules('lama_periode', 'Lama Periode', 'trim|required|max_length[2]');
-		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required|max_length[2]');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required|max_length[200]');
 		$this->form_validation->set_rules('bghasil_peternak', 'Bagi Hasil Peternak', 'trim|required|max_length[4]');
 		$this->form_validation->set_rules('bghasil_investor', 'Bagi Hasil Investor', 'trim|required|max_length[4]');
 
@@ -153,6 +153,7 @@ class Cattle extends MY_Controller
 		$this->form_validation->set_rules('jumlah_sapi', 'Jumlah Sapi', 'trim|required|max_length[2]');
 		$this->form_validation->set_rules('jumlah_unit', 'Jumlah Pembagian Unit', 'trim|required|max_length[2]');
 		$this->form_validation->set_rules('lama_periode', 'Lama Periode', 'trim|required|max_length[2]');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required|max_length[200]');
 		$this->form_validation->set_rules('bghasil_peternak', 'Bagi Hasil Peternak', 'trim|required|max_length[4]');
 		$this->form_validation->set_rules('bghasil_investor', 'Bagi Hasil Investor', 'trim|required|max_length[4]');
 

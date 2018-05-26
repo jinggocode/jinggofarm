@@ -1,15 +1,15 @@
 <?php
 
 /**
-*
-*/
+ *
+ */
 class Profile extends MY_Controller
 {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->_accessable = TRUE;
+		$this->_accessable = true;
 		$this->load->helper(array('dump', 'utility'));
 		$this->load->model(array('user_model'));
 	}
@@ -18,7 +18,7 @@ class Profile extends MY_Controller
 	{
 		$data['user'] = (object)$this->ion_auth->user()->row();
 
-    $this->generateCsrf();
+		$this->generateCsrf();
 		$this->render('investor/profile/index', $data);
 	}
 
@@ -26,7 +26,7 @@ class Profile extends MY_Controller
 	{
 		$data['user'] = (object)$this->ion_auth->user()->row();
 
-    $this->generateCsrf();
+		$this->generateCsrf();
 		$this->render('investor/profile/password', $data);
 	}
 
@@ -37,8 +37,7 @@ class Profile extends MY_Controller
 		$this->form_validation->set_rules('phone', 'Nomor Telepon', 'trim|required|min_length[2]|max_length[13]');
 		$data = $this->input->post();
 
-		if ($this->form_validation->run() == FALSE)
-		{
+		if ($this->form_validation->run() == false) {
 			$data['user'] = (object)$data;
 
 			$this->generateCsrf();
@@ -46,7 +45,7 @@ class Profile extends MY_Controller
 		} else {
 			$update = $this->user_model->update($data, $this->input->post('id'));
 
-			if ($update === FALSE) {
+			if ($update === false) {
 				$this->message('Aksi Gagal', 'warning');
 
 				$this->go("investor/profile");
@@ -63,18 +62,17 @@ class Profile extends MY_Controller
 		$this->form_validation->set_rules('reenter_password', 'Nama', 'trim|required|max_length[8]|matches[password]');
 		$data = $this->input->post();
 
-		if ($this->form_validation->run() == FALSE)
-		{
+		if ($this->form_validation->run() == false) {
 			$data['user'] = (object)$data;
 
 			$this->generateCsrf();
 			$this->render('investor/profile/password', $data);
 		} else {
-			$data['password'] 	= password_hash($data['password'], PASSWORD_BCRYPT);
-			
+			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+
 			$update = $this->user_model->update($data, $this->input->post('id'));
 
-			if ($update === FALSE) {
+			if ($update === false) {
 				$this->message('Aksi Gagal', 'warning');
 
 				$this->go("investor/profile/password");

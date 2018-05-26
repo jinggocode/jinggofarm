@@ -93,7 +93,7 @@
                         </div>
                     </div> 
                     <div class="form-group">
-                        <label class="col-md-3 control-label" for="lama_periode">Lama Periode</label>
+                        <label class="col-md-3 control-label" for="lama_periode">Jangka Waktu (Tahun)</label>
                         <div class="col-md-2">
                             <input value="{{set_value('lama_periode')}}" type="number" id="lama_periode" name="lama_periode" class="form-control"> 
                         </div>

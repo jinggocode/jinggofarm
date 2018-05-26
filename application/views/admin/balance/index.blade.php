@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-4" align="right" style="background-color: #E0E0E0">
                 <div class="header-section">
-                    Total Saldo<h1> <b>Rp. 20.000.000</b></h1>
+                    Total Saldo<h1> <b>{{money($total_saldo->nominal)}}</b></h1>
                 </div>
             </div>
         </div>
