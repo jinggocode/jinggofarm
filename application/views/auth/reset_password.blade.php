@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Masuk | Jinggofarm</title>
+  <title>Password Baru | Jinggofarm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon-->
@@ -41,7 +41,7 @@
         <div class="col-md-4">
           <div class="card p-2" style="background: rgba(255, 255, 255, 0.7)">
             <div class="card-body">
-              <h3 class="mb-1 text-secondary text-center"><i class="fa fa-lock"></i> Lupa Password</h3>
+              <h3 class="mb-1 text-secondary text-center"><i class="fa fa-lock"></i> Password Baru</h3>
               <hr class="secondary border-secondary" style="border-width: 5px; width: 12%; margin-top: 10px; margin-bottom: 10px" align="center">
 
                 <?php if ($message): ?>
@@ -57,12 +57,17 @@
                 @endif
                 <?php endif ?>
 
-              <form method="post" action="{{site_url('auth/forgot_password')}}">
-                <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
+              <form method="post" action="{{site_url('auth/reset_password/'.$code)}}">
+                <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" /> 
+                <?php echo form_input($user_id);?>
 
                 <div class="form-group">
-                    <label class="text-dark" for="identity">Email</label>
-                    <?php echo form_input($identity);?>
+                  <label class="text-dark" for="identity">Password Baru</label>
+                  <?php echo form_input($new_password);?>
+                </div> 
+                <div class="form-group">
+                  <label class="text-dark" for="identity">Ulangi Password</label>
+                  <?php echo form_input($new_password_confirm);?>
                 </div> 
 
                 <div class="row">
@@ -71,8 +76,9 @@
                   </div> 
                 </div>
 
-              </form> 
-              <a href="{{site_url('auth/login')}}" class="btn btn-warning btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
+              </form>
+              <p class="mt-3">Belum punya akun? </p>
+              <a href="{{site_url('auth/create_user')}}" class="btn btn-warning btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
           </div>
         </div>

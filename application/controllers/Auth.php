@@ -300,12 +300,14 @@ class Auth extends MY_Controller {
 					'name' => 'new',
 					'id'   => 'new',
 					'type' => 'password',
+					'class' => 'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 					);
 				$this->data['new_password_confirm'] = array(
 					'name'    => 'new_confirm',
 					'id'      => 'new_confirm',
 					'type'    => 'password',
+					'class' => 'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 					);
 				$this->data['user_id'] = array(
@@ -313,19 +315,19 @@ class Auth extends MY_Controller {
 					'id'    => 'user_id',
 					'type'  => 'hidden',
 					'value' => $user->id,
-					);
-				$this->data['csrf'] = $this->_get_csrf_nonce();
+					); 
 				$this->data['code'] = $code;
 
 				// render
-				$this->_render_page('auth/reset_password', $this->data);
+				$this->render('auth/reset_password', $this->data);
 			}
 			else
 			{
 				// do we have a valid request?
-				if ($this->_valid_csrf_nonce() === FALSE || $user->id != $this->input->post('user_id'))
+				if ($user->id != $this->input->post('user_id'))
 				{
 
+					dump('aduh');
 					// something fishy might be up
 					$this->ion_auth->clear_forgotten_password_code($code);
 
