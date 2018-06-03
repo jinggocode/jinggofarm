@@ -41,7 +41,7 @@
         <div class="col-md-4">
           <div class="card p-2" style="background: rgba(255, 255, 255, 0.7)">
             <div class="card-body">
-              <h3 class="mb-1 text-secondary text-center"><i class="fa fa-lock"></i> Masuk</h3>
+              <h3 class="mb-1 text-secondary text-center"><i class="fa fa-lock"></i> Lupa Password</h3>
               <hr class="secondary border-secondary" style="border-width: 5px; width: 12%; margin-top: 10px; margin-bottom: 10px" align="center">
 
                 <?php if ($message): ?>
@@ -57,30 +57,23 @@
                 @endif
                 <?php endif ?>
 
-              <form method="post" action="{{site_url('auth/login')}}">
+              <form method="post" action="{{site_url('auth/forgot_password')}}">
                 <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
 
                 <div class="form-group">
                     <label class="text-dark" for="identity">Email</label>
                     <?php echo form_input($identity);?>
-                </div>
-                <div class="form-group">
-                    <label class="text-dark" for="password">Password</label>
-                    <?php echo form_input($password);?>
-                </div>
+                </div> 
 
                 <div class="row">
-                  <div class="col-12 col-sm-6 col-md-6">
-                    <button type="submit" class="btn btn-block btn-secondary mb-2"><i class="fa fa-sign"></i><i class="fa fa-send"></i>  Login</button>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6" align="right">
-                    <a href="{{site_url('auth/forgot_password')}}" class="btn btn-block btn-warning text-white">Lupa Password</a>
-                  </div>
+                  <div class="col-12 col-sm-12 col-md-12">
+                    <button type="submit" class="btn btn-block btn-secondary mb-2"><i class="fa fa-sign"></i><i class="fa fa-send"></i> Reset</button>
+                  </div> 
                 </div>
 
               </form>
               <p class="mt-3">Belum punya akun? </p>
-              <a href="{{site_url('auth/create_user')}}" class="btn btn-outline-primary btn-block"><i class="fa fa-pencil-square-o"></i> Daftar</a>
+              <a href="{{site_url('auth/create_user')}}" class="btn btn-warning btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
           </div>
         </div>

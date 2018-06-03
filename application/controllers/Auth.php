@@ -218,6 +218,8 @@ class Auth extends MY_Controller {
 			// setup the input
 			$this->data['identity'] = array('name' => 'identity',
 				'id' => 'identity',
+				'class' => 'form-control',
+				'placeholder' => 'Masukan Email anda'
 				);
 
 			if ( $this->config->item('identity', 'ion_auth') != 'email' ){
@@ -230,7 +232,7 @@ class Auth extends MY_Controller {
 
 			// set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			$this->_render_page('auth/forgot_password', $this->data);
+			$this->render('auth/forgot_password', $this->data);
 		}
 		else
 		{
