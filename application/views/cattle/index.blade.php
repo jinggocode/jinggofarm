@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="card-footer">
-                  <a href="{{site_url('cattle/view/'.$value->id.'/'.$value->slug)}}" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
+                  <a href="{{site_url('cattle/view/'.$value->id.'/'.$value->slug)}}" class="card-link btn btn-block btn-success"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
                 </div>
               </div>
             </div>

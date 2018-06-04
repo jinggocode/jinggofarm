@@ -59,7 +59,7 @@ class Transaction extends MY_Controller
 		$data = $this->transaction_model   
             ->where($filter, 'like', '%')  
 			->limit($config['per_page'],$offset=$start) 
-			->with_ternak()
+			->with_ternak('fields:nama', array('with'=>array('relation'=>'kategori','fields'=>'nama')))
 			->order_by('created_at', 'DESC')
 			->where('id_user', $user->id)
 			->get_all();   

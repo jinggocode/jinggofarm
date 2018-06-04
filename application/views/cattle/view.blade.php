@@ -2,13 +2,21 @@
 
 @section('title'){{$data->kategori->nama}}@endsection
 
+@section('style')
+<style>
+  .link-hover:hover{
+    text-shadow: 0.5px 0.7px;
+  }
+</style>
+@endsection
+
 @section('content')
 <div class="text-center opaque-overlay bg-secondary">
   <div class="container py-5">
     <div class="row">
       <div class="col-md-12 text-white">
         <h1 class="display-4 text-left">Investasi <b>{{$data->kategori->nama}}</b></h1>
-        <h6 class="text-left">oleh <i class="fa fa-home"></i> <b onclick="window.location.href='{{site_url('groups/view')}}'" style="cursor: pointer;">Kelompok Ternak Sumber Lumintu</b></h6>
+        <h6 class="text-left link-hover">oleh <i class="fa fa-home"></i> <b onclick="window.location.href='{{site_url('groups/view')}}'" style="cursor: pointer;">Kelompok Ternak Sumber Lumintu</b></h6>
         <hr class="text-white border border-light mx-0 mb-4" style="width: 10%">
       </div>
     </div>
@@ -98,7 +106,8 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><b>Deskripsi</b></a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><b>Simulasi Keuntungan</b></a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><b><i class="fa fa-line-chart"></i> Simulasi Keuntungan</b></a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-term" role="tab" aria-controls="nav-profile" aria-selected="false"><b><i class="fa fa-info-circle"></i> Syarat dan Ketentuan</b></a>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -112,7 +121,7 @@
                       <?php
                       $biaya = $data->biaya / $data->jumlah_unit;
                       for ($i=1; $i <= $data->jumlah_unit; $i++) { ?>
-                        <option value="{{$i}}">{{$i}} - {{money($i*$biaya)}}</option>
+                        <option value="{{$i}}">{{$i}} Paket - Biaya {{money($i*$biaya)}}</option>
                       <?php } ?>
                     </select>
                   </div>
@@ -176,6 +185,9 @@
                   <p><strong>Catatan</strong> <br>
                     <i>Simulasi dimaksud merupakan perkiraan minimal hasil pendapatan selama masa investasi. Simulasi ini berdasarkan kondisi yang berjalan saat ini</i></p>
                 </div>
+              </div> 
+              <div class="tab-pane fade" id="nav-term" role="tabpanel" aria-labelledby="nav-home-tab">
+                <p class="mt-3" style="font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure voluptatibus repellat amet provident voluptatem dolor quaerat ipsam consectetur eligendi dolorum ducimus blanditiis, obcaecati consequatur quisquam repudiandae repellendus tenetur? Officiis, consequuntur!</p>
               </div>
             </div>
           </div>
@@ -256,12 +268,12 @@
                       <?php
                       $biaya = $data->biaya / $data->jumlah_unit;
                       for ($i=1; $i <= $data->sisa_unit; $i++) { ?>
-                      <option value="{{$i}}">{{$i}} - {{money($i * $biaya)}}</option>
+                      <option value="{{$i}}">{{$i}} Paket - Biaya {{money($i * $biaya)}}</option>
                       <?php } ?>
                     </select>
                   </div>
                   <p align="center">Pelajari <a href="">Syarat dan ketentuan</a> yang berlaku sebelum memulai Investasi!</p>
-                  <input type="submit" class="btn btn-primary btn-block" value="Beri Dana">
+                  <input type="submit" class="btn btn-success btn-block" value="Beri Dana">
                 </form>
               </div>
             </div>

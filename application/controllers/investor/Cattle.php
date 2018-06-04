@@ -18,19 +18,22 @@ class Cattle extends MY_Controller
 
 	public function index()
 	{
-		$data['ternak']    = $this->cattle_model->get_all();
+		$data['ternak'] = $this->cattle_model
+		      ->with_kategori()
+		      ->with_foto()
+		      ->order_by('sisa_unit', 'desc')
+		      ->get_all();
 
 		$this->render('investor/cattle/index', $data);
 	}
  
 	public function view($id)
 	{
-		$data['data'] 			  = $this->cattle_model->with_kategori()->with_fotos()->get($id);
+		$data['data'] 			  = $this->cattle_model->with_fotos()->with_kategori()->where('id', $id)->get();
 		$data['paket_dibeli']	  = $this->cattle_model->cek_paket($id);
 		$data['perkiraan_profit'] = $this->estimate_model->get_all();
-		$data['total_perkiraan']  = $this->estimate_model->totalPerkiraan();  	
-		// $data['sisa_unit'] = $this->cattle_model->where('id_ternak', )
-
+		$data['total_perkiraan']  = $this->estimate_model->totalPerkiraan();
+		// dump($data['data'] );
 		$this->generateCsrf();
 		$this->render('investor/cattle/view', $data);
 	}

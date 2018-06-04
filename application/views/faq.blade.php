@@ -10,8 +10,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-md-12 text-white">
-        <h1 style="margin-bottom: -4px" class="text-left display-5"><i class="fa fa-question-circle"></i>&nbsp;Pertanyaan Yang Sering Diajukan</h1>
-        <hr class="text-white border border-light mx-0" style="width: 20%">
+        <h1 style="margin-bottom: -4px" class="text-left display-5"><i class="fa fa-question-circle"></i>&nbsp;Pertanyaan Yang Sering Diajukan</h1> 
       </div>
     </div>
   </div>

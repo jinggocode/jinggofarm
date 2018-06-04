@@ -98,7 +98,7 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><b>Deskripsi</b></a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><b>Simulasi Keuntungan</b></a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><b><i class="fa fa-line-chart"></i> Simulasi Keuntungan</b></a>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -112,7 +112,7 @@
                       <?php
                       $biaya = $data->biaya / $data->jumlah_unit;
                       for ($i=1; $i <= $data->jumlah_unit; $i++) { ?>
-                        <option value="{{$i}}">{{$i}} - {{money($i*$biaya)}}</option>
+                        <option value="{{$i}}">{{$i}} Paket - Biaya {{money($i*$biaya)}}</option>
                       <?php } ?>
                     </select>
                   </div>
@@ -120,7 +120,7 @@
                 <span id="total_perkiraan" class="text-white">{{$total_perkiraan->jumlah*$data->jumlah_sapi}}</span>
 
                 <!-- result -->
-                <div id="hasil"  style="display:none;">
+                <div id="hasil" style="display:none;">
                   <table class="table table-bordered">
                     <tr>
                       <td colspan="2" class="bg-dark text-white"><b>Perkiraan Jumlah Profit Bersih</b></td>
@@ -188,7 +188,13 @@
           <!-- <div class="progress">
             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
           </div> -->
-          <table class="table table-striped bg-white mt-3 d-none d-sm-block">
+          
+          <div class="alert alert-primary mt-3" role="alert">
+              <h4><i class="fa fa-bullhorn"></i> <strong>Informasi Penting</strong></h4>
+              <p>{{(isset($data->keterangan)?$data->keterangan:'-')}}</p>
+          </div>
+          <table class="table table-striped bg-white d-none d-sm-block">
+
             <tbody>
               <tr>
                 <td style="width: 50%">
@@ -250,12 +256,12 @@
                       <?php
                       $biaya = $data->biaya / $data->jumlah_unit;
                       for ($i=1; $i <= $data->sisa_unit; $i++) { ?>
-                      <option value="{{$i}}">{{$i}} - {{money($i * $biaya)}}</option>
+                      <option value="{{$i}}">{{$i}} Paket - Biaya {{money($i * $biaya)}}</option>
                       <?php } ?>
                     </select>
                   </div>
                   <p align="center">Pelajari <a href="">Syarat dan ketentuan</a> yang berlaku sebelum memulai Investasi!</p>
-                  <input type="submit" class="btn btn-primary btn-block" value="Beri Dana">
+                  <input type="submit" class="btn btn-success btn-block" value="Beri Dana">
                 </form>
               </div>
             </div>

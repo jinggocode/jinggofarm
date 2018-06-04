@@ -184,7 +184,7 @@
               </div>
 
               <div class="card-footer">
-                <a href="{{site_url('cattle/view/'.$value->id.'/'.$value->slug)}}" class="card-link btn btn-block btn-secondary"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
+                <a href="{{site_url('cattle/view/'.$value->id.'/'.$value->slug)}}" class="card-link btn btn-block btn-success"><i class="fa fa-eye"></i> Lihat Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@
 
     <div class="row">
       <div class="col-md-12" align="center">
-        <a href="{{site_url('cattle')}}" class="btn btn-primary text-center btn-lg my-4 text-white">Lihat Semua Investasi <i class="fa fa-arrow-right"></i></a>
+        <a href="{{site_url('cattle')}}" class="btn btn-success text-center btn-lg my-4 text-white">Lihat Semua Investasi <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
   </div>

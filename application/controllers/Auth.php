@@ -264,8 +264,8 @@ class Auth extends MY_Controller {
 				redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
 			else
-			{
-				$this->message($this->ion_auth->errors());
+			{ 
+				$this->message('Mohon maaf terjadi kesalahan :( Segera hubungi kami', 'danger');
 				redirect("auth/forgot_password", 'refresh');
 			}
 		}

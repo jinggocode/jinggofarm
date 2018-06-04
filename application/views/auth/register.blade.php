@@ -40,8 +40,8 @@
                   <strong>Peringatan!</strong><br> <?php echo $message; ?>
                 </div>
               @else
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong>Peringatan!</strong><br> <?php echo $message[0]; ?>
+                <div class="alert alert-<?php echo $message[1]; ?> alert-dismissible fade show" role="alert">
+                  <?php echo $message[0]; ?>
                 </div>
               @endif
               <?php endif ?>

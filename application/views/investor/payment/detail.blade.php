@@ -67,7 +67,7 @@
                   <td>
                     <h5>Nama Ternak</h5>
                   </td>
-                  <td>{{$data->ternak->nama}}</td>
+                  <td>{{$data->ternak->kategori->nama}}</td>
                 </tr>
                 <tr>
                   <td>

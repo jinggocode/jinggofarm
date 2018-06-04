@@ -48,6 +48,10 @@ class Balance extends MY_Controller
 		->limit($config['per_page'],$offset=$start)
 		->order_by('created_at', 'DESC')
 		->get_all();
+		$config['total_rows'] = $this->balance_investor_model
+		->where('id_user', $user->id) 
+		->where('status', '0')
+		->count_rows();
 
 		foreach ($data as $key) { 
 			$jumlah_hari_ternak = jumlah_hari_ternak($key->lap_keuangan->ternak->tanggal_ternak); 
@@ -66,9 +70,6 @@ class Balance extends MY_Controller
 			}  
 		}
 		
-		$config['total_rows'] = $this->balance_investor_model
-		->where('id_user', $user->id)
-		->count_rows();
 
 		$this->load->library('pagination');
 		$this->pagination->initialize($config);
@@ -92,7 +93,7 @@ class Balance extends MY_Controller
 		$user = $this->ion_auth->user()->row();
 
 		$start = $this->uri->segment(4, 0);
-		$config['base_url'] = base_url() . 'investor/balance/index/';
+		$config['base_url'] = base_url() . 'investor/balance/pull_history/';
 
 		/*Class bootstrap pagination yang digunakan*/
 		$config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
@@ -120,6 +121,7 @@ class Balance extends MY_Controller
 
 		$config['total_rows'] = $this->balance_investor_model
 		->where('id_user', $user->id)
+		->where('status_tarik', '1')
 		->count_rows();
 
 		$this->load->library('pagination');

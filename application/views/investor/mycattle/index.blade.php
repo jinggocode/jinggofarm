@@ -14,18 +14,14 @@
   </div>
 </div>
 <div class="py-5">
-  <div class="container">
-    <!--<form class="">
-      <div class="form-group row"> <label for="inputPassword2" class="sr-only">Password</label>
-        <div class="col-md-4 col-sm-9 col-9">
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Berdasarkan Nama" style="width: 100%;"> </div>
-        <div class="col-sm-3 col-md-3 col-3">
-          <button type="submit" class="btn btn-primary mb-2">Cari</button>
-        </div>
-      </div>
-    </form> -->
+  <div class="container"> 
+
     <div class="row">
       <div class="col-md-12">
+
+        <div class="mb-3">
+            <a href="{{site_url('investor/cattle')}}" class="btn btn-success"><i class="fa fa-plus-square"></i> Tambah Investasi</a>
+        </div>
 
         <!-- TAMPILAN DESKTOP -->
         <div class="d-none d-lg-block d-xl-block">

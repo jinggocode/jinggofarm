@@ -48,7 +48,7 @@
                 @foreach($data as $row) 
                 <tr> 
                   <td>{{$row->kode_transaksi}}</td>
-                  <td><b>{{$row->ternak->nama}}</b></td>
+                  <td><b>{{$row->ternak->kategori->nama}}</b></td>
                   <td>{{$row->unit}}</td>
                   <td>{{money($row->total)}}</td>
                   <td> 

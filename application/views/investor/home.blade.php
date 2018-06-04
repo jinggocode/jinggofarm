@@ -10,7 +10,7 @@
           <img class="img-fluid d-block mx-auto mb-5" src="https://pingendo.github.io/templates/sections/assets/footer_logo2.png"> </div>-->
         <div class="col-md-12 text-white align-self-center">
           <img src="{{base_url('assets/img/icon/cow.png')}}" width="90" class="img-fluid" alt="">
-          <h4 class="mb-1 display-2 text-light" style=" line-height: 1.45; font-size: 30px">Selamat Datang <span class=" text-light">{{$nama_user}}</span> di Jinggofarm!</h4>
+          <h4 class="mb-1 display-2 text-light" style=" line-height: 1.45; font-size: 30px">Selamat Datang <span class=" text-light"><b>{{$nama_user}}</b></span> di Jinggofarm!</h4>
           <hr class="text-white border border-light" align="center" style="width: 10%">
         </div>
       </div>
@@ -48,7 +48,7 @@
           <div class="col-md-7">
             <div class="card border-secondary mb-3">
               <div class="card-body text-secondary text-center">
-                <h5 class="card-title text-center">Profit</h5>
+                <h5 class="card-title text-center">Saldo</h5>
                 <p class="card-text text-center badge badge-secondary" style="font-size: 30px;"><b>{{money($saldo)}}</b></p>
               </div>
               <div class="card-footer text-center">
@@ -110,7 +110,7 @@
       </div>
 
       <div class="col-md-4">
-        <div class="card">
+        <div class="card border-primary">
           <div class="card-header">
             Informasi
           </div>
@@ -119,16 +119,25 @@
               @if ($info_akun == '0')
                 <div class="alert alert-danger" role="alert">
                   <h3 align="center"><strong>Penting!</strong></h3>
-                  Segera lakukan aktifasi akun anda, dengan cara cek email anda!
+                  Segera lakukan aktivasi akun, Kami mengirimkan link aktivasi melalui email anda!
                 </div>
               @else
                 <p align="center">-tidak ada Informasi-</p>
-              @endif
-
+              @endif 
             </blockquote>
           </div>
         </div>
+        
+        <div class="card text-white bg-success mt-4">
+          <div class="card-header">
+            <i class="fa fa-phone"></i> Hubungi Kami
+          </div>
+          <div class="card-body">
+            Admin 1 : 082244213171
+          </div>
+        </div>
       </div>
+
     </div>
 
   </div>
